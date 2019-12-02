@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1">JUROS ZAP - A melhor calculadora de juros dos sete mares.</span>
+  </nav>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <meta charset="utf-8">
+</head>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+
+      <body>
+        <div class="card" style="width: 18rem;">
+          <img src="https://i.kym-cdn.com/photos/images/newsfeed/001/499/826/2f0.png" class="card-img-top" alt="https://i.kym-cdn.com/photos/images/newsfeed/001/499/826/2f0.png">
+          <div class="card-body">
+            <h5 class="card-title">O que é Juros compostos?</h5>
+            <p class="card-text">Trata-se de juros sobre juros. Pode também aparecer com o
+              nome de "regime de capitalização composta".
+              São acréscimos somados ao capital ao fim de cada
+              periodo de aplicação, formando com esta soma um
+              novo capital. Logo, o juro não é sobre o capital
+              inicial, mas sempre sobre o novo capital formado
+              com a soma das aplicações anteriores. Sempre vai
+              acumulando, por isso o crescimento é exponencial.</p>
+           
+          </div>
+        </div>
+    </div>
+    <br>
+    <div class="col-sm">
+      <h2>Calcule seu rendimento de juros:</h2>
+
+      <label>
+          <div class="shadow-sm p-3 mb-5 bg-white rounded">
+            <div class="form-group">
+              <label for="examplevalor">Valor Inicial:</label>
+              <input type="number" class="form-control" id="examplevalor" aria-describedby="emailHelp" placeholder="R$ 00,00">
+            </div>
+            <div class="form-group">
+              <label for="exampleaporte">Aporte Mensal:</label>
+              <input type="number" class="form-control" id="exampleaporte" placeholder="R$ 00,00">
+            </div>
+            <div class="form-group">
+              <label for="exampletempo">Por quanto tempo irá investir:</label>
+              <input type="number" class="form-control" id="examplemensal" placeholder="0">
+            </div>
+            <div class="form-group">
+              <label for="examplerentabilidade">Rentabilidade projetada:</label>
+              <input type="number" class="form-control" id="examplerentabilidade" placeholder="0,00 %">
+            </div>
+
+          <button onclick="myFunction()">Calcular</button>
+          </div>
+      </label>
+    <br>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+        <p> Valor total investido: <span id="Total-investido"> </span></p>      
+      </div>
+    </div>
+
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+      <p> Valor recebido em juros compostos: <span id="Juros"> </span></p> 
+      </div>
+    </div>
+
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+       <p> Total acumulado: <span id="Total-acumulado"> </span></p> 
+      </div>
+
+
+
+    </div>
+    </form>
+    <script>
+      function myFunction() {
+        var Valorinicial = Number(document.getElementById ("examplevalor").value);
+        var aportemensal = Number(document.getElementById ("exampleaporte").value);
+        var investimento = Number(document.getElementById ("examplemensal").value);
+        var rentabilidade = Number(document.getElementById ("examplerentabilidade").value);
+  
+  var investido = Valorinicial + aportemensal*investimento; 
+  var totalac = (Valorinicial*(1+(rentabilidade/100))**investimento) + aportemensal*((1+(rentabilidade/100))**investimento - 1) / (rentabilidade/100);
+  var juroscomp = totalac - investido;
+
+//
+        document.getElementById("Total-investido").innerHTML = "R$ " + investido.toFixed(2);
+      
+        document.getElementById("Juros").innerHTML = "R$ " + juroscomp.toFixed(2);
+        
+        document.getElementById("Total-acumulado").innerHTML = "R$ " + totalac.toFixed(2);
+        
+      }
+    </script>
+    </body>
+
+</html>
