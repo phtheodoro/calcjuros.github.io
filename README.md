@@ -1,2 +1,2 @@
-# calcjuros.github.io
+# http://calcjuros.github.io
 A melhor calculadora já vista.
